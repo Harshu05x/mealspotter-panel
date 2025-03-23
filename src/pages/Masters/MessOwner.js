@@ -66,7 +66,7 @@ function MessOwner() {
     },
     validationSchema: Yup.object({
       email: Yup.string().required("Please Enter Email"),
-      password: Yup.string().required("Please Enter Password"),
+      password: !isEdit ? Yup.string().required("Please Enter Password") : Yup.string(),
     }),
     onSubmit: (values) => {
       if (isEdit) {
@@ -245,43 +245,43 @@ function MessOwner() {
           </>;
         }
       },
-      // {
-      //   Header: 'Action',
-      //   accessor: 'action',
-      //   disableFilters: true,
-      //   Cell: (cellProps) => {
-      //     return (
-      //       <div className="d-flex gap-3">
-      //         <Link
-      //           to="#"
-      //           className="text-success"
-      //           onClick={() => {
-      //             const messOwnerData = cellProps.row.original;
-      //             handleMessOwnerClick(messOwnerData);
-      //           }}
-      //         >
-      //           <i className="mdi mdi-pencil font-size-18" id="edittooltip" />
-      //           <UncontrolledTooltip placement="top" target="edittooltip">
-      //             Edit
-      //           </UncontrolledTooltip>
-      //         </Link>
-      //         {/* <Link
-      //           to="#"
-      //           className="text-danger"
-      //           onClick={() => {
-      //             const orderData = cellProps.row.original;
-      //             onClickDelete(orderData);
-      //           }}
-      //         >
-      //           <i className="mdi mdi-delete font-size-18" id="deletetooltip" />
-      //           <UncontrolledTooltip placement="top" target="deletetooltip">
-      //             Delete
-      //           </UncontrolledTooltip>
-      //         </Link> */}
-      //       </div>
-      //     );
-      //   }
-      // },
+      {
+        Header: 'Action',
+        accessor: 'action',
+        disableFilters: true,
+        Cell: (cellProps) => {
+          return (
+            <div className="d-flex gap-3">
+              <Link
+                to="#"
+                className="text-success"
+                onClick={() => {
+                  const messOwnerData = cellProps.row.original;
+                  handleMessOwnerClick(messOwnerData);
+                }}
+              >
+                <i className="mdi mdi-pencil font-size-18" id="edittooltip" />
+                <UncontrolledTooltip placement="top" target="edittooltip">
+                  Edit
+                </UncontrolledTooltip>
+              </Link>
+              {/* <Link
+                to="#"
+                className="text-danger"
+                onClick={() => {
+                  const orderData = cellProps.row.original;
+                  onClickDelete(orderData);
+                }}
+              >
+                <i className="mdi mdi-delete font-size-18" id="deletetooltip" />
+                <UncontrolledTooltip placement="top" target="deletetooltip">
+                  Delete
+                </UncontrolledTooltip>
+              </Link> */}
+            </div>
+          );
+        }
+      },
     ],
     []
   );
@@ -368,7 +368,8 @@ function MessOwner() {
                         placeholder="Password"
                         onChange={validation.handleChange}
                         onBlur={validation.handleBlur}
-                        value={validation.values.password}
+                        value={isEdit ? "********" : validation.values.password}
+                        disabled={!!isEdit}
                       >
                       </Input>
                       {validation.touched.password && validation.errors.password ? (
