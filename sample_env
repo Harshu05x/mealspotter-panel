@@ -1,0 +1,15 @@
+REACT_APP_DEFAULTAUTH=jwt ## jwt auth token.
+REACT_APP_BASEURL=http://localhost:4000/api/ ## base url forlocal development .
+REACT_APP_IMAGEBASEURL=http://localhost:4000/ ## base url for image upload in local development.
+BREVO_API_KEY=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 ##For Email.
+ADMIN_EMAIL="harshad.madhbhave@zentosys.in"
+
+REACT_APP_APIKEY=
+REACT_APP_AUTHDOMAIN= 
+REACT_APP_DATABASEURL=
+REACT_APP_PROJECTID=
+REACT_APP_STORAGEBUCKET=
+REACT_APP_MESSAGINGSENDERID=
+REACT_APP_APPID=
+REACT_APP_MEASUREMENTID=
+SKIP_PREFLIGHT_CHECK=true

@@ -1,0 +1,12 @@
+export const EDIT_PROFILE = "EDIT_PROFILE"
+export const PROFILE_SUCCESS = "PROFILE_SUCCESS"
+export const PROFILE_ERROR = "PROFILE_ERROR"
+export const RESET_PROFILE_FLAG = "RESET_PROFILE_FLAG";
+
+// get user profile
+export const GET_USER_PROFILE = "GET_USER_PROFILE";
+export const GET_USER_PROFILE_SUCCESS = "GET_USER_PROFILE_SUCCESS";
+export const GET_USER_PROFILE_ERROR = "GET_USER_PROFILE_ERROR";
+
+// update user password
+export const UPDATE_USER_PASSWORD = "UPDATE_USER_PASSWORD";

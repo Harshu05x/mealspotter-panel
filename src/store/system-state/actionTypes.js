@@ -1,0 +1,3 @@
+export const SYSTEM_LOADING = 'SYSTEM_LOADING';
+
+export const SYSTEM_ERROR = 'SYSTEM_ERROR';

@@ -1,0 +1,11 @@
+.preview-image{
+    max-width:100% ;
+    width: 40%;
+    margin: 10px;
+    border-radius: 15px;
+    border: 2px solid #e1e4e5;
+}
+
+.react-select__menu, .react-select__menu-list{
+    background-color: wheat;
+}
