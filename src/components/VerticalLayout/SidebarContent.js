@@ -13,6 +13,10 @@ import { Link } from "react-router-dom";
 
 //i18n
 import { withTranslation } from "react-i18next";
+import { useDispatch } from "react-redux";
+import { getUserProfile } from "store/actions";
+import { createSelector } from "reselect";
+import { useSelector } from "react-redux";
 
 const SidebarContent = props => {
   const ref = useRef();
@@ -140,6 +144,23 @@ const SidebarContent = props => {
     }
   }
 
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getUserProfile());
+  },[dispatch])
+
+  const selectProfileState = (state) => state.Profile;
+  const ProfileProperties = createSelector(
+    selectProfileState,
+    (Profile) => ({
+      user: Profile.user
+    })
+  );
+
+  const { user } = useSelector(ProfileProperties);
+
+  console.log("user", user);
+
   return (
     <React.Fragment>
       <SimpleBar className="h-100" ref={ref}>
@@ -154,7 +175,7 @@ const SidebarContent = props => {
                 <span style={{color: "white"}}>{props.t("Dashboard")}</span>
               </Link>
             </li>
-
+{/* 
             <li>
               <Link to="/#" className="has-arrow">
                 <i className="bx bx-package"></i>
@@ -184,7 +205,7 @@ const SidebarContent = props => {
                 {/* <li>
                   <Link to="/cancelled-orders">{props.t("Cancelled Orders")}</Link>
                 </li> */}
-                <li>
+{/*                <li>
                   <Link to="/refunded-orders">{props.t("Refunded / Cancelled Orders")}</Link>
                 </li>
                 <li>
@@ -231,7 +252,7 @@ const SidebarContent = props => {
                   </Link>
                 </li>
               </ul>
-            </li>
+            </li> */}
 
 
 
@@ -251,9 +272,11 @@ const SidebarContent = props => {
                 <li>
                   <Link to="/agegroups">{props.t("Age Groups")}</Link>
                 </li> */}
-                <li>
-                  <Link to="/mess-owners">{props.t("Mess Owners")}</Link>
-                </li>
+                {user?.userType === 'admin' && (
+                  <li>
+                    <Link to="/mess-owners">{props.t("Mess Owners")}</Link>
+                  </li>
+                )}
                 {/* <li>
                   <Link to="/zones">{props.t("Zones")}</Link>
                 </li>

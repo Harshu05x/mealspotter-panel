@@ -35,8 +35,8 @@ import { ToastContainer } from "react-toastify";
 
 const UserProfile = () => {
 
-  //meta title
-  document.title = "Profile | The Toy Rent Company";
+  //meta titley
+  document.title = "Profile | Meals Spotter"  ;
 
   const dispatch = useDispatch();
 
@@ -117,7 +117,7 @@ const UserProfile = () => {
       <div className="page-content">
         <Container fluid>
           {/* Render Breadcrumb */}
-          <Breadcrumb title="The Toy Rent Company" breadcrumbItem="Profile" />
+          <Breadcrumb title="Meals Spotter" breadcrumbItem="Profile" />
 
           <div>
             {

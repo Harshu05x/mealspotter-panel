@@ -37,8 +37,8 @@ const Sidebar = props => {
             {
               props.type === "default" &&
               <span className="logo-lg d-flex align-items-center ">
-                <img src={logoLightSvg} alt="logo" className=" mt-3 px-2" height="30" />
-                <h3 className="p-0 m-0 pt-3" style={{color:"#fff"}}>TTRC Admin</h3>
+                {/* <img src={logoLightSvg} alt="logo" className=" mt-3 px-2" height="30" /> */}
+                <h3 className="p-0 m-0 pt-3" style={{color:"#fff"}}>Meals Spotter Admin</h3>
               </span>
             } 
           </Link>

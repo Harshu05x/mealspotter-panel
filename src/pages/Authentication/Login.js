@@ -81,7 +81,7 @@ const Login = props => {
                   <Col className="col-7">
                       <div className="text-primary p-4">
                         <h5 className="text-primary">Welcome Back !</h5>
-                        <p>Sign in to continue to TTRC.</p>
+                        <p>Sign in to continue to Meals Spotter.</p>
                       </div>
                     </Col>
                     <Col className="col-5 align-self-end">
@@ -246,7 +246,7 @@ const Login = props => {
                   </Link>{" "}
                 </p>
                 <p>
-                  © {new Date().getFullYear()} TTRC.
+                  © {new Date().getFullYear()} Meals Spotter.
                 </p>
               </div>
             </Col>

@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { isEmpty } from "lodash";
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import TableContainer from '../../components/Common/TableContainer';
@@ -286,9 +286,26 @@ function MessOwner() {
     []
   );
 
+  const selectProfileState = (state) => state.Profile;
+  const ProfileProperties = createSelector(
+    selectProfileState,
+    (Profile) => ({
+      user: Profile.user
+    })
+  );
+
+  const { user } = useSelector(ProfileProperties);
+  // const navigate = useNavigate();
+
+  // useEffect(() => {
+  //   console.log("user", user);
+  //   if(user?.userType !== 'admin') {
+  //     navigate('/logout');
+  //   }
+  // }, [user]);
+
   return (
     <React.Fragment>
-
       <DeleteModal
         show={deleteModal}
         onDeleteClick={handleDeleteMessOwner}
